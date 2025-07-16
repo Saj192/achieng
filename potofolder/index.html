@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scholastica A. Juma</title>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("eMEpLf81BFXyqdN4U"); // Replace with your public key
+  })();
+</script>
+
+  
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
@@ -319,21 +327,22 @@
       <h2>Contact Me</h2>
       <p>Email: <a href="mailto:achiengscholastica192@gmail.com">achiengscholastica192@gmail.com</a></p>
       <p>Phone: <a href="tel:+254710907216">+254 71 0907 216</a></p>
-      <form>
+      <form id="contact-form" onsubmit="sendEmail(event)">
+
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="name" name="user_name" placeholder="Your Name" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your Email" required>
+<label for="email">Email</label>
+<input type="email" id="email" name="user_email" placeholder="Your Email" required>
 
-        <label for="telephone">Telephone</label>
-        <input type="tel" id="telephone" placeholder="Your Telephone">
+<label for="telephone">Telephone</label>
+<input type="tel" id="telephone" name="user_phone" placeholder="Your Telephone">
 
-        <label for="location">Location</label>
-        <input type="text" id="location" placeholder="City / Country">
+<label for="location">Location</label>
+<input type="text" id="location" name="user_location" placeholder="City / Country">
 
-        <label for="address">Address</label>
-        <textarea id="address" rows="3" placeholder="Your Address"></textarea>
+<label for="address">Address</label>
+<textarea id="address" name="user_message" rows="3" placeholder="Your Address"></textarea>
 
         <button type="submit">Send Message</button>
       </form>
@@ -386,6 +395,19 @@
     function hireMe() {
       alert("Let's work together! Contact me via the form below.");
     }
+
+    function sendEmail(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_14p5uf9', 'template_mqku2bn', '#contact-form')
+      .then(() => {
+        alert("Message sent successfully!");
+        document.getElementById("contact-form").reset();
+      }, (error) => {
+        alert("Failed to send message. Error: " + JSON.stringify(error));
+      });
+  }
+
   </script>
 </body>
 </html>
