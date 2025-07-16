@@ -37,6 +37,8 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 1em;
     }
 
     .settings {
@@ -80,24 +82,22 @@
     }
 
     .sub-title {
-      position: absolute;
-      top: 70%;
       font-size: 2rem;
       font-style: italic;
       color: white;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      margin-top: 1em;
     }
 
     .profile-pic {
-      position: absolute;
-      right: 40px;
-      top: 50%;
-      transform: translateY(-50%);
+      margin-top: 1em;
       width: 200px;
       height: 200px;
       border-radius: 50%;
       background: linear-gradient(to right, red, pink);
       padding: 8px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .profile-pic-inner {
@@ -241,6 +241,35 @@
     .btn-container button:hover {
       background-color: #ff69b4;
     }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header h1 span {
+        font-size: 3.5rem;
+      }
+
+      .sub-title {
+        font-size: 1.2rem;
+      }
+
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+      }
+
+      .btn-container button {
+        width: 90%;
+        margin: 0.5em 0;
+      }
+
+      .projects img,
+      .gallery img {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -250,11 +279,13 @@
     <div class="settings">
       <button onclick="toggleTheme()">Toggle Dark Theme</button>
     </div>
-    <h1><span>S</span>cholastica A. Juma</h1>
-    <div class="sub-title">Web Developer / Frontend / Backend / Full Stack</div>
-    <div class="profile-pic">
-      <div class="profile-pic-inner">
-        <img src="C:\Users\USER\Desktop\potofolder\IMG-20240828-WA0090.jpg">
+    <div>
+      <h1><span>S</span>cholastica A. Juma</h1>
+      <div class="sub-title">Web Developer / Frontend / Backend / Full Stack</div>
+      <div class="profile-pic">
+        <div class="profile-pic-inner">
+          <img src="img/profile.jpg" alt="Profile Picture">
+        </div>
       </div>
     </div>
   </header>
@@ -264,13 +295,12 @@
       <h2>About Me</h2>
       <p>Hello, I'm Scholastica A. Juma. I'm passionate about software development, both frontend and backend. I enjoy creating impactful and user-friendly solutions.</p>
 
-      <div class="pop-up-statements" id="statement1" style="color: white;">I am a Web Developer.</div>
-      <div class="pop-up-statements" id="statement2" style="color: white;">I am an Artist.</div>
-      <div class="pop-up-statements" id="statement3" style="color: white;">I am a Backend Developer.</div>
-      <div class="pop-up-statements" id="statement4" style="color: white;">I am a Frontend Developer.</div>
-      <div class="pop-up-statements" id="statement5" style="color: white;">I am a YouTuber.</div>
-      <div class="pop-up-statements" id="statement6" style="color: white;">I am a Writer.</div>
-
+      <div class="pop-up-statements" id="statement1">I am a Web Developer.</div>
+      <div class="pop-up-statements" id="statement2">I am an Artist.</div>
+      <div class="pop-up-statements" id="statement3">I am a Backend Developer.</div>
+      <div class="pop-up-statements" id="statement4">I am a Frontend Developer.</div>
+      <div class="pop-up-statements" id="statement5">I am a YouTuber.</div>
+      <div class="pop-up-statements" id="statement6">I am a Writer.</div>
 
       <div class="btn-container">
         <button onclick="downloadCV()">Download CV</button>
@@ -280,12 +310,10 @@
 
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <img src="C:\Users\USER\Desktop\potofolder\p1.png" alt="Project 1">
-      <img src="C:\Users\USER\Desktop\potofolder\p2.png" alt="Project 2">
-      <img src="C:\Users\USER\Desktop\potofolder\p3.png" alt="Project 3">
+      <img src="img/project1.png" alt="Project 1">
+      <img src="img/project2.png" alt="Project 2">
+      <img src="img/project3.png" alt="Project 3">
     </section>
-
-
 
     <section id="contact">
       <h2>Contact Me</h2>
@@ -294,10 +322,10 @@
       <form>
         <label for="name">Name</label>
         <input type="text" id="name" placeholder="Your Name" required>
-        
+
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="Your Email" required>
-        
+
         <label for="telephone">Telephone</label>
         <input type="tel" id="telephone" placeholder="Your Telephone">
 
